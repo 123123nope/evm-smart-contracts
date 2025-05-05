@@ -31,7 +31,7 @@ task('deploy-timelock', 'Deploys the LombardTimeLock contract')
             }
         });
 
-        console.log(`exectutors: ${JSON.stringify(executors, null, 2)}`);
+        console.log(`executors: ${JSON.stringify(executors, null, 2)}`);
         console.log(`proposers: ${JSON.stringify(proposers, null, 2)}`);
 
         const constructorArguments = [minDelay, proposers, executors];
@@ -45,13 +45,13 @@ task('deploy-timelock', 'Deploys the LombardTimeLock contract')
         console.log(`Timelock deployed at ${await timelock.getAddress()}`);
 
         await verify(
-            run,
+            hre.run,
             await timelock.getAddress(),
             {
                 constructorArguments,
                 contract:
                     'contracts/consortium/LombardTimeLock.sol:LombardTimeLock',
             },
-            15_000
+             15_000
         );
     });
