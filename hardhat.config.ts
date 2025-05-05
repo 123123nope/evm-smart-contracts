@@ -6,6 +6,7 @@ import 'hardhat-gas-reporter';
 import 'hardhat-deploy';
 
 import './scripts';
+import './tasks';
 
 const config: HardhatUserConfig = {
     gasReporter: {
@@ -296,7 +297,7 @@ const config: HardhatUserConfig = {
         },
         bsc: {
             loggingEnabled: true,
-            url: vars.get('BSC_RPC', 'https://bsc-rpc.publicnode.com'),
+            url: vars.get('BSC_RPC', 'https://rpc.ankr.com/bsc'),
             chainId: 56,
             accounts: [
                 vars.get(
